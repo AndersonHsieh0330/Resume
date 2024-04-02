@@ -60,10 +60,16 @@
 \newcommand{\resumeSubheading}[3]{
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & {\small #3} {\small #2} \\
+      \textbf{#1} & {\small #3} {\small #2} 
     \end{tabular*}\vspace{-6pt}
 }
 
+\newcommand{\resumeProjectHeading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\small #2}
+    \end{tabular*}\vspace{-5pt}
+}
 
 \newcommand{\resumeEducationHeading}[2]{
   \vspace{-2pt}\item
@@ -77,6 +83,7 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in, label={-}]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 \newcommand{\resumeSectionName}[1]{\section{#1}\vspace{2pt}}
+
 %----- unused commands ------
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
@@ -91,12 +98,6 @@
 
 \begin{document}
 \fontfamily{lmss}\selectfont
-\newcommand{\resumeProjectHeading}[2]{
-    \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
 
 %---------- HEADING ----------
 
@@ -124,30 +125,48 @@
     \small{\item{
             \textbf{Languages: }{Verilog, VHDL, Python, C/C++, SPICE, Makefile, Java, Kotlin, JavaScript, HTML, CSS } \\ \vspace{2pt}
 
-        \textbf{Tools: }{Yosys, Vivado, Verilator, Cocotb, Magic VLSI, Ngspice, Virtuoso, KiCad, Quartus, OpenROAD, XSchem} \\ \vspace{2pt}
+        \textbf{Tools: }{Yosys, Vivado, Verilator, Cocotb, Magic VLSI, Ngspice, Virtuoso, KiCad, Quartus, OpenLane, OpenROAD, XSchem} \\ \vspace{2pt}
 
-        \textbf{FPGAs \& PDKs: }{Xilinx Spartan 7, Lattice ECP5, TSMC 5nm, Skywater 130nm} \\ 
-        }
+        \textbf{FPGAs \& PDKs: }{Xilinx Spartan 7, Lattice ECP5, TSMC 5nm, Skywater 130nm} 
+        }\\ \vspace{2pt}
     }
   \resumeSubHeadingListEnd
+  
+%----------- Projects -----------
+\resumeSectionName{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {WF8 : 8-bit Microprocessor}{\color{blue}\href{https://github.com/AndersonHsieh0330/WF8/tree/master}{Github} $\:|\:$ \color{blue}\href{https://github.com/AndersonHsieh0330/WF8/blob/master/info/WF8_doc.pdf}{Whitepaper}}
+      \resumeItemListStart
+            \resumeItem{Designed 8-bit integer \textbf{accumulator-based} processor in Verilog and a \color{blue}\href{https://github.com/AndersonHsieh0330/WF8?tab=readme-ov-file\#instruction-set-architecture}{custom ISA}}
+            \resumeItem{Implemented two versions of the microprocessor with \textbf{4-staged pipelined} datapath and single data bus architecture for FPGA and ASIC application Respectively}
+        \resumeItemListEnd
+    \resumeProjectHeading
+      {RISC-V Processor
+      }{}{}
+    \resumeItemListStart
+            \resumeItem{Implemented \textbf{5 staged pipe-lined} processor implementing the RISC-V ISA with data-bypassing across stages}
+            \resumeItem{Tested with benchmark programs like Bubble Sort and GCD in Verilator simulation and on PYNQ-Z1 board using Vivado}
+    \resumeItemListEnd
 
+    \resumeSubHeadingListEnd
+    
 %----------- Professional EXPERIENCE -----------
-\vspace{-15pt}
 \resumeSectionName{Professional Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
       {Hardware Engineer @ Atomic Semi}
-      {San Francisco, CA}{May 2023 \textbf{--} August 2023 $\:|\:$}
+      {San Francisco, CA}{Jan 2024 \textbf{--} Apr 2024 $\:|\:$}
         \resumeItemListStart
-            \resumeItem{Created \textbf{90nm node PDK} from scratch, including standard cells and their GDS layouts, spice, and Verilog models}
-            \resumeItem{Created mask pattern data transfer system from scratch with \textbf{Butterstick FPGA} and \textbf{FT60x} USB 3.o to FIFO bridge. The project includes \textbf{C++ firmware} with D3xx driver, \textbf{PCB} connector with KiCad, \textbf{Verilog} FIFO master on ECP5, and \textbf{C++ simulation tests} with Verilator. The system streams out data at 100HMz and can handle clock domain crossing.}
-            \resumeItem{Created \textbf{mask-making workflow} from scratch by working with the process team to define Atomic Semi's 90nm node layer stack-up, implementing Magic VLSI technology file, design rule checks, device circuit extraction, and \textbf{scalable GDSII to BMP python script}, speeded up the mask-making process by over 50\%}
+            \resumeItem{Designed \textbf{90nm node PDK} from scratch, including standard cells and their GDS layouts, spice, and Verilog models}
+            \resumeItem{Created mask pattern data transfer system from scratch with \textbf{Butterstick FPGA} and \textbf{FT60x} USB 3.o to FIFO bridge, including \textbf{C++ firmware} with D3xx driver, \textbf{PCB} connector with KiCad, \textbf{Verilog} FIFO master on ECP5, and \textbf{C++ simulation tests} with Verilator. The system streams out data at 100Mhz and can handle clock domain crossing.}
+            \resumeItem{Implemented \textbf{mask-making workflow} from scratch by working with the process team to define Atomic Semi's 90nm node layer stack-up, implementing Magic VLSI technology file, design rule checks, device circuit extraction, and \textbf{scalable GDSII to BMP python script}, sped up the mask-making process by over 50\%}
             \resumeItem{Designed and drew test mask for process team with Magic VLSI}
         \resumeItemListEnd
         
     \resumeSubheading
       {AI Hardware Architecture Engineer @ UntetherAI}
-      {Toronto, ON}{May 2023 \textbf{--} August 2023 $\:|\:$}
+      {Toronto, ON}{May 2023 \textbf{--} Aug 2023 $\:|\:$}
         \resumeItemListStart
             \resumeItem{Implemented \textbf{core IPs with SystemVerilog}, including the matrix multiplication processing element, architecture-specific and
             number format datapath control, 2s complement to floating point conversion block, and custom SRAM control logic}
@@ -166,23 +185,6 @@
             \resumeItem{Implemented searching, filtering, sorting, and pagination of database entities with JDBC, SQL, and Protobuf with unit tests}
             \resumeItem{Refactored error code mapping and Kafka connection between services, eliminated 70\%+ code redundancy}
         \resumeItemListEnd
-
-    \resumeSubheading
-      {Assistant Engineer @ KKtream Ltd}
-      {Taipei City, Taiwan}{Aug 2021 \textbf{--} Dec 2021 $\:|\:$}
-        \resumeItemListStart
-            \resumeItem{Improved testing efficiency by 30\% by rebuilding Android automation testing in Jenkins pipeline with Espresso and Java}
-            \resumeItem{Developed all test cases for two major features on Android \& iOS music app with TestRail and exploratory testing, features shipped to 3.5 million Japanese users and usage of the two modules increased by 10\%}
-        \resumeItemListEnd
-
-    \resumeSubheading
-      {Firmware Test Engineer Intern @ Barco N.V}
-      {New Taipei City, Taiwan}{Dec 2020 \textbf{--} Apr 2021 $\:|\:$}
-        \resumeItemListStart
-            \resumeItem{Supported new testing environment integration for TLS/TTLS authentication with \textbf{Linux FreeRadius} and network switches}
-            \resumeItem{Coached interns in onboarding and testing tool usage like Android ADB, Samba and Xlight FTP server setup}
-            \\ 
-        \resumeItemListEnd
     \resumeSubHeadingListEnd
 
 %----------- Other Experiences -----------
@@ -192,7 +194,7 @@
       {President @ WLOOSERVE
       }{Sep 2023 - Present}
       \resumeItemListStart
-            \resumeItem{Led 15 execs to run a 550+ member volleyball club, including regular drop-in sessions, tournaments, social media, merch, skill clinic, social events}
+            \resumeItem{Led 15 execs to run a 550+ member volleyball club, including regular drop-in sessions, tournaments, social media, merch, skill clinic, and social events}
         \resumeItemListEnd
       
     \resumeSubHeadingListEnd
@@ -219,11 +221,11 @@
     \end{multicols}
     \vspace{-13pt}
 
-     \resumeEducationHeading
-      {Zero to Asic : Open-source ASIC EDA tools and Skywater 130nm technology
+    \resumeEducationHeading
+      {Zero to Asic Course : Open-source ASIC EDA tools and Skywater 130nm technology
       }{}
-        \resumeItemListStart
-            \resumeItem{Introduced to Skywater 130nm PDK, OpenLane flow, simulating standard cells with ngspice, CMOS layout with Magic VLSI, and formal verification with SymbiYosys}
-        \resumeItemListEnd
-    \resumeSubHeadingListEnd
+    \resumeItemListStart
+        \resumeItem{Introduced to Skywater 130nm PDK, OpenLane flow, simulating standard cells with ngspice, CMOS layout with Magic VLSI, and formal verification with SymbiYosys}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
 \end{document}
